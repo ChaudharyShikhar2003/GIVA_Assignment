@@ -14,31 +14,16 @@ const Home = () => {
   const [currentProduct, setCurrentProduct] = useState<Product | null>(null);
 
   useEffect(() => {
-    // Hardcoded initial products
-    const hardcodedProducts: Product[] = [
-      { id: 1, name: "Product A", description: "Description for Product A", price: 50, quantity: 2 },
-      { id: 2, name: "Product B", description: "Description for Product B", price: 100, quantity: 1},
-      { id: 3, name: "Product C", description: "Description for Product C", price: 150, quantity: 3 },
-      { id: 4, name: "Product D", description: "Description for Product D", price: 200, quantity: 6 },
-      { id: 5, name: "Product E", description: "Description for Product E", price: 250, quantity: 10 }
-    ];
-
-    // Fetch products from the backend
     axios.get('http://localhost:5000/api/products').then((res) => {
-      // Combine hardcoded products with those fetched from the backend
-      setProducts([...hardcodedProducts, ...res.data]);
-    }).catch((error) => {
-      console.error('Error fetching products:', error);
-      // Even if the fetch fails, you can still display hardcoded products
-      setProducts(hardcodedProducts);
+      setProducts(res.data);
     });
   }, []);
 
   const handleAddProduct = (newProduct: Product) => {
-    // You might want to change this to post to your backend
-    axios.post('http://localhost:5000/api/products', newProduct)
+    axios
+      .post('http://localhost:5000/api/products', newProduct)
       .then((res) => {
-        setProducts((prevProducts) => [...prevProducts, res.data]);
+        setProducts([...products, res.data]);
         setShowAddModal(false);
       })
       .catch((error) => console.error('Error adding product:', error));
@@ -46,10 +31,11 @@ const Home = () => {
 
   const handleEditProduct = (updatedProduct: Product) => {
     if (currentProduct) {
-      axios.put(`http://localhost:5000/api/products/${currentProduct.id}`, updatedProduct)
+      axios
+        .put(`http://localhost:5000/api/products/${currentProduct.id}`, updatedProduct)
         .then((res) => {
-          setProducts((prevProducts) =>
-            prevProducts.map((product) =>
+          setProducts(
+            products.map((product) =>
               product.id === currentProduct.id ? res.data : product
             )
           );
@@ -60,9 +46,10 @@ const Home = () => {
   };
 
   const handleDeleteProduct = (id: number) => {
-    axios.delete(`http://localhost:5000/api/products/${id}`)
+    axios
+      .delete(`http://localhost:5000/api/products/${id}`)
       .then(() => {
-        setProducts((prevProducts) => prevProducts.filter((product) => product.id !== id));
+        setProducts(products.filter((product) => product.id !== id));
       })
       .catch((error) => console.error('Error deleting product:', error));
   };

@@ -37,9 +37,9 @@ jobs:
         working-directory: ./frontend
         run: npm ci
 
-      - name: Build with Next.js and Export Static Site
+      - name: Build with Next.js
         working-directory: ./frontend
-        run: npm run build && npm run export
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

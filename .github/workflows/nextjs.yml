@@ -20,33 +20,31 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           cache-dependency-path: frontend/package-lock.json
           node-version: "20"
+          cache: npm
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
           static_site_generator: next
-      - name: Restore cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/frontend/package-lock.json', '**/frontend/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/frontend/package-lock.json', '**/frontend/yarn.lock') }}-
+
       - name: Install dependencies
         working-directory: ./frontend
         run: npm ci
-      - name: Build with Next.js
+
+      - name: Build with Next.js and Export Static Site
         working-directory: ./frontend
-        run: npm run build
+        run: npm run build && npm run export
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./frontend/.next
+          path: ./frontend/out
 
   deploy:
     environment:

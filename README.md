@@ -1,7 +1,7 @@
 # Product Listing App
 
-A full-stack task management application with React frontend and Node.js/Express backend. It is hosted on  [link][https://chaudharyshikhar2003.github.io/GIVA_Assignment/]
-NOTE: We have hosted only the frontend on [link][https://chaudharyshikhar2003.github.io/GIVA_Assignment/], it is hosted on the dummy branch, and if you want to run it locally, please switch to master branch
+A full-stack task management application with React frontend and Node.js/Express backend. It is hosted on  [link](https://chaudharyshikhar2003.github.io/GIVA_Assignment/)
+NOTE: We have hosted only the frontend on [link](https://chaudharyshikhar2003.github.io/GIVA_Assignment/), it is hosted on the dummy branch, and if you want to run it locally, please switch to master branch
 
 ## Prerequisites
 

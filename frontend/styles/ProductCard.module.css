@@ -1,0 +1,91 @@
+/* components/ProductCard.module.css */
+
+.card {
+    background: #f8f9fa; 
+    border: 1px solid #dee2e6; 
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin: 1rem; 
+    background: rgba( 0, 0, 0, 0.15 );
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+  }
+  
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cardBody {
+    padding: 1.5rem; 
+  }
+  
+  .cardTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #343a40; 
+    margin-bottom: 0.75rem; 
+  }
+  
+  .cardText {
+    color: #6c757d; 
+    margin-bottom: 01rem; 
+  }
+  
+  .cardFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .price {
+    font-weight: bold;
+    color: #28a745; /* Green color for price */
+  }
+  
+  .quantity {
+    color: #6c757d; /* Medium gray */
+  }
+  
+  .buttonGroup {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem; /* Space above buttons */
+  }
+  
+  .editButton {
+    background-color: #007bff; /* Bootstrap blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 0.5rem; /* Space between buttons */
+  }
+  
+  .editButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .deleteButton {
+    background-color: #dc3545; /* Bootstrap red */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .deleteButton:hover {
+    background-color: #c82333; /* Darker red on hover */
+  }
+  

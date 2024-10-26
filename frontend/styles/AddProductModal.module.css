@@ -1,0 +1,87 @@
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px); /* Glassmorphism effect */
+    position: fixed; /* Fixed position to stay in the center */
+    top: 25%;
+    left: 40%;
+    z-index: 1050; /* Ensure modal is above other content */
+  }
+  
+  .modalDialog {
+    width: 100%;
+    max-width: 400px; /* Compact width */
+    margin: 0; /* Remove default margin */
+  }
+  
+  .modalContent {
+    background: rgba(255, 255, 255, 0.2); /* Transparent white background */
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem; /* Slightly more padding for better content display */
+  }
+  
+  .modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modalTitle {
+    margin: 0;
+    color: #4a4a4a; /* Darker text for better readability */
+  }
+  
+  .closeButton {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #4a4a4a; /* Change close button color */
+  }
+  
+  .modalBody {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+  }
+  
+  .inputField {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    color: #4a4a4a;
+  }
+  
+  .modalFooter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  
+  .cancelButton {
+    background-color: transparent;
+    border: 1px solid #4a4a4a;
+    color: #4a4a4a;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  
+  .addButton {
+    background-color: #4a4a4a; /* Change button color */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  
+  .cancelButton:hover,
+  .addButton:hover {
+    opacity: 0.9; /* Slight hover effect */
+  }
+  

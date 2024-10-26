@@ -1,0 +1,89 @@
+/* components/EditProductModal.module.css */
+
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px); /* Glassmorphism effect */
+    position: fixed; /* Keep modal centered */
+    top: 25%;
+    left: 40%;
+    z-index: 1050; /* Above other content */
+  }
+  
+  .modalDialog {
+    width: 100%;
+    max-width: 400px; /* Compact width */
+    margin: 0; /* Remove default margin */
+  }
+  
+  .modalContent {
+    background: rgba(255, 255, 255, 0.2); /* Transparent background */
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem; /* Padding for content */
+  }
+  
+  .modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modalTitle {
+    margin: 0;
+    color: #4a4a4a; /* Darker text */
+  }
+  
+  .closeButton {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #4a4a4a; /* Close button color */
+  }
+  
+  .modalBody {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+  }
+  
+  .inputField {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    color: #4a4a4a;
+  }
+  
+  .modalFooter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  
+  .cancelButton {
+    background-color: transparent;
+    border: 1px solid #4a4a4a; /* Border color */
+    color: #4a4a4a;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  
+  .saveButton {
+    background-color: #4a4a4a; /* Button color */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  
+  .cancelButton:hover,
+  .saveButton:hover {
+    opacity: 0.9; /* Hover effect */
+  }
+  

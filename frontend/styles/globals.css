@@ -1,0 +1,20 @@
+/* global.css */
+body {
+  padding: 20px;
+  background-color: #f8f9fa;
+  /* background-image: url(https://images.unsplash.com/photo-1715148470008-329758d3ace7?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); */
+  background-image: url(https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-position: start;
+}
+
+.product-card {
+  margin-bottom: 20px;
+}
+
+.modal-body input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}

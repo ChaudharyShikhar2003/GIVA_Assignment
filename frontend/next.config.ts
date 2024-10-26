@@ -3,7 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: 'export', 
   basePath: '/GIVA_Assignment',
-  trailingSlash: true,  
+  trailingSlash: true,
+  reactStrictMode: true,
 };
 
 export default nextConfig;

@@ -1,7 +1,6 @@
 // pages/index.tsx
 import styles from '../styles/styles.module.css'; // Ensure this is the correct path
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import ProductCard from '../components/ProductCard';
 import AddProductModal from '../components/AddProductModal';
 import EditProductModal from '../components/EditProductModal';
@@ -13,45 +12,39 @@ const Home = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [currentProduct, setCurrentProduct] = useState<Product | null>(null);
 
+  // Dummy data
+  const dummyProducts: Product[] = [
+    { id: 1, name: "Product A", description: "Description for Product A", price: 50, quantity: 0 },
+    { id: 2, name: "Product B", description: "Description for Product B", price: 100, quantity: 0 },
+    { id: 3, name: "Product C", description: "Description for Product C", price: 150, quantity: 0 },
+    { id: 4, name: "Product D", description: "Description for Product D", price: 200, quantity: 0 },
+    { id: 5, name: "Product E", description: "Description for Product E", price: 250, quantity: 0 }
+  ];
+
   useEffect(() => {
-    axios.get('http://localhost:5000/api/products').then((res) => {
-      setProducts(res.data);
-    });
+    setProducts(dummyProducts);
   }, []);
 
   const handleAddProduct = (newProduct: Product) => {
-    axios
-      .post('http://localhost:5000/api/products', newProduct)
-      .then((res) => {
-        setProducts([...products, res.data]);
-        setShowAddModal(false);
-      })
-      .catch((error) => console.error('Error adding product:', error));
+    const nextId = products.length > 0 ? Math.max(...products.map(product => product.id)) + 1 : 1; // Ensure max ID calculation
+    const productWithId: Product = { ...newProduct, id: nextId }; // Assign a new ID
+    setProducts([...products, productWithId]);
+    setShowAddModal(false);
   };
 
   const handleEditProduct = (updatedProduct: Product) => {
     if (currentProduct) {
-      axios
-        .put(`http://localhost:5000/api/products/${currentProduct.id}`, updatedProduct)
-        .then((res) => {
-          setProducts(
-            products.map((product) =>
-              product.id === currentProduct.id ? res.data : product
-            )
-          );
-          setShowEditModal(false);
-        })
-        .catch((error) => console.error('Error editing product:', error));
+      setProducts(
+        products.map((product) =>
+          product.id === currentProduct.id ? { ...product, ...updatedProduct } : product
+        )
+      );
+      setShowEditModal(false);
     }
   };
 
   const handleDeleteProduct = (id: number) => {
-    axios
-      .delete(`http://localhost:5000/api/products/${id}`)
-      .then(() => {
-        setProducts(products.filter((product) => product.id !== id));
-      })
-      .catch((error) => console.error('Error deleting product:', error));
+    setProducts(products.filter((product) => product.id !== id));
   };
 
   return (
@@ -79,7 +72,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Add Product Modal */}
       {showAddModal && (
         <AddProductModal
           onClose={() => setShowAddModal(false)}
@@ -87,7 +79,6 @@ const Home = () => {
         />
       )}
 
-      {/* Edit Product Modal */}
       {showEditModal && currentProduct && (
         <EditProductModal
           product={currentProduct}
